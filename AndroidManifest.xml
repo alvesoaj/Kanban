@@ -23,8 +23,12 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.zerokol.kanban.activities.CreateTaskActivity"
+            android:name=".activities.CreateTaskActivity"
             android:label="@string/title_activity_create_task" >
+        </activity>
+        <activity
+            android:name="com.zerokol.kanban.activities.CreateProjectActivity"
+            android:label="@string/title_activity_create_project" >
         </activity>
     </application>
 

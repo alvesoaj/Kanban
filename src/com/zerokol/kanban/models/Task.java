@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class Task {
 	private Integer id;
+	private Integer projectId;
 	private String description;
 	private Integer situation;
 	private Date createdAt;
@@ -18,6 +19,14 @@ public class Task {
 
 	public void setId(Integer id) {
 		this.id = id;
+	}
+
+	public Integer getProjectId() {
+		return projectId;
+	}
+
+	public void setProjectId(Integer projectId) {
+		this.projectId = projectId;
 	}
 
 	public String getDescription() {

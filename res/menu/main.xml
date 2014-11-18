@@ -4,9 +4,9 @@
     tools:context="com.zerokol.kanban.MainActivity" >
 
     <item
-        android:id="@+id/action_create_task"
+        android:id="@+id/action_create_project"
         android:orderInCategory="100"
-        android:title="@string/action_create_task"
+        android:title="@string/action_create_project"
         app:showAsAction="never"/>
 
 </menu>

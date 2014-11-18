@@ -4,9 +4,16 @@
     <string name="app_name">Kanban</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
-    <string name="title_activity_create_task">CreateTaskActivity</string>
-    <string name="create_task_description_hint">Escreva uma tarefa</string>
-    <string name="create_task_button_label">Salvar</string>
     <string name="action_create_task">Create New Task</string>
+    <string name="action_create_project">Create New Project</string>
+    <!-- Titles -->
+    <string name="title_activity_create_task">CreateTaskActivity</string>
+    <string name="title_activity_create_project">CreateProjectActivity</string>
+    <!-- Create Task -->
+    <string name="create_task_description_hint">Escreva uma tarefa</string>
+    <string name="create_task_button_label">Salvar Tarefa</string>
+    <!-- Create Project -->
+    <string name="create_project_description_hint">Nome do projeto</string>
+    <string name="create_project_button_label">Salvar Projeto</string>
 
 </resources>

@@ -15,11 +15,12 @@ import com.zerokol.kanban.utils.KanbanSQLiteHelper;
 public class TaskDAO {
 	public static final String TABLE = "tasks";
 	public static final String TABLE_ID = "id";
+	public static final String TABLE_PROJECT_ID = "project_id";
 	public static final String TABLE_DESCRIPTION = "description";
 	public static final String TABLE_SITUATION = "situation";
 	public static final String TABLE_CREATED_AT = "created_at";
-	public static final String[] ALL_COLUMNS = { TABLE_ID, TABLE_DESCRIPTION,
-			TABLE_SITUATION, TABLE_CREATED_AT };
+	public static final String[] ALL_COLUMNS = { TABLE_ID, TABLE_PROJECT_ID,
+			TABLE_DESCRIPTION, TABLE_SITUATION, TABLE_CREATED_AT };
 
 	private SQLiteDatabase database;
 	private KanbanSQLiteHelper dbHelper;
@@ -52,6 +53,7 @@ public class TaskDAO {
 		ContentValues values = new ContentValues();
 
 		values.put(TABLE_ID, task.getId());
+		values.put(TABLE_PROJECT_ID, task.getProjectId());
 		values.put(TABLE_DESCRIPTION, task.getDescription());
 		values.put(TABLE_SITUATION, task.getSituation());
 		values.put(TABLE_CREATED_AT,
@@ -85,10 +87,11 @@ public class TaskDAO {
 		Task task = new Task();
 
 		task.setId(cursor.getInt(0));
-		task.setDescription(cursor.getString(1));
-		task.setSituation(cursor.getInt(2));
+		task.setProjectId(cursor.getInt(1));
+		task.setDescription(cursor.getString(2));
+		task.setSituation(cursor.getInt(3));
 		task.setCreatedAt(KanbanHelper.convertStringDateToDate(cursor
-				.getString(3)));
+				.getString(4)));
 
 		return task;
 	}

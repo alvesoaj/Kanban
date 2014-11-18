@@ -5,15 +5,19 @@ import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ListView;
 
 import com.zerokol.kanban.R;
 
 public class MainActivity extends ActionBarActivity {
+	private ListView projectsList;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+
+		projectsList = (ListView) findViewById(R.id.main_projects_listView);
 	}
 
 	@Override
@@ -29,9 +33,9 @@ public class MainActivity extends ActionBarActivity {
 		// automatically handle clicks on the Home/Up button, so long
 		// as you specify a parent activity in AndroidManifest.xml.
 		int id = item.getItemId();
-		if (id == R.id.action_create_task) {
+		if (id == R.id.action_create_project) {
 			Intent intent = new Intent(MainActivity.this,
-					CreateTaskActivity.class);
+					CreateProjectActivity.class);
 			startActivity(intent);
 
 			return true;
