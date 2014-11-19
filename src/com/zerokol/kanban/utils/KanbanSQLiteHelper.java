@@ -7,7 +7,7 @@ import android.util.Log;
 
 public class KanbanSQLiteHelper extends SQLiteOpenHelper {
 	private static final String DATABASE_NAME = "kanban.db";
-	private static final int DATABASE_VERSION = 3;
+	private static final int DATABASE_VERSION = 4;
 
 	private static final String CREATE_PROJECTS_TABLE = "CREATE TABLE [projects] ("
 			+ " [id] INTEGER PRIMARY KEY AUTOINCREMENT,"
@@ -20,7 +20,10 @@ public class KanbanSQLiteHelper extends SQLiteOpenHelper {
 			+ " [created_at] DATETIME NOT NULL);";
 
 	private static final String ADD_COLUMN_TO_TASKS = "ALTER TABLE [tasks]"
-			+ " ADD project_id INTEGER(10);";
+			+ " ADD [project_id] INTEGER(10) NOT NULL DEFAULT 1;";
+
+	private static final String ADD_COLUMN_TO_PROJECTS = "ALTER TABLE [projects]"
+			+ " ADD [created_at] DATETIME NOT NULL DEFAULT '2014-11-19 12:00:00';";
 
 	public KanbanSQLiteHelper(Context context) {
 		super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -34,6 +37,8 @@ public class KanbanSQLiteHelper extends SQLiteOpenHelper {
 		database.execSQL(CREATE_PROJECTS_TABLE);
 		// v3
 		database.execSQL(ADD_COLUMN_TO_TASKS);
+		// v4
+		database.execSQL(ADD_COLUMN_TO_PROJECTS);
 	}
 
 	@Override
@@ -50,6 +55,9 @@ public class KanbanSQLiteHelper extends SQLiteOpenHelper {
 				break;
 			case 2:
 				database.execSQL(ADD_COLUMN_TO_TASKS);
+				break;
+			case 3:
+				database.execSQL(ADD_COLUMN_TO_PROJECTS);
 				break;
 			}
 		}

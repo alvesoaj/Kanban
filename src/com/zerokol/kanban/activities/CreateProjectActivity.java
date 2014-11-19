@@ -10,6 +10,7 @@ import android.widget.EditText;
 import com.zerokol.kanban.R;
 import com.zerokol.kanban.daos.ProjectDAO;
 import com.zerokol.kanban.models.Project;
+import com.zerokol.kanban.utils.KanbanHelper;
 
 public class CreateProjectActivity extends ActionBarActivity {
 	private EditText name;
@@ -31,6 +32,7 @@ public class CreateProjectActivity extends ActionBarActivity {
 			public void onClick(View v) {
 				Project project = new Project();
 				project.setName(name.getText().toString());
+				project.setCreatedAt(KanbanHelper.getTimeCurrent());
 
 				projectDataAccessObject.open();
 				projectDataAccessObject.create(project);

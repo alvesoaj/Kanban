@@ -1,5 +1,7 @@
 package com.zerokol.kanban.activities;
 
+import java.util.ArrayList;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
@@ -8,16 +10,37 @@ import android.view.MenuItem;
 import android.widget.ListView;
 
 import com.zerokol.kanban.R;
+import com.zerokol.kanban.adapters.ProjectAdapter;
+import com.zerokol.kanban.daos.ProjectDAO;
+import com.zerokol.kanban.models.Project;
 
 public class MainActivity extends ActionBarActivity {
-	private ListView projectsList;
+	private ListView projectsListView;
+	private ArrayList<Project> projects;
+	private ProjectDAO projectdao;
+	private ProjectAdapter projectAdapter;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 
-		projectsList = (ListView) findViewById(R.id.main_projects_listView);
+		projectsListView = (ListView) findViewById(R.id.main_projects_listView);
+
+		projectdao = new ProjectDAO(this);
+		projectdao.open();
+		projects = projectdao.selectAll();
+		projectdao.close();
+
+		projectAdapter = new ProjectAdapter(this, projects);
+
+		projectsListView.setAdapter(projectAdapter);
+	}
+
+	@Override
+	protected void onResume() {
+		projectAdapter.notifyDataSetChanged();
+		super.onResume();
 	}
 
 	@Override

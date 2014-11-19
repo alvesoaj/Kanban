@@ -15,5 +15,8 @@
     <!-- Create Project -->
     <string name="create_project_description_hint">Nome do projeto</string>
     <string name="create_project_button_label">Salvar Projeto</string>
+    <string name="adapter_project_name_hint">Project Name Label</string>
+    <string name="adapter_project_created_at_hint">08:00 2014/11/01</string>
+    <string name="adapter_project_quantity">10</string>
 
 </resources>

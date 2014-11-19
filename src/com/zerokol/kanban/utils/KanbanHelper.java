@@ -84,7 +84,7 @@ public class KanbanHelper {
 
 	public static String getHumanData(Date date) {
 		if (date != null) {
-			return new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
+			return new SimpleDateFormat("HH:mm dd/MM/yyyy", Locale.getDefault())
 					.format(date);
 		} else {
 			return "NULL";
