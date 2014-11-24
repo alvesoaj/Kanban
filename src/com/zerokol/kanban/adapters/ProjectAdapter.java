@@ -29,9 +29,8 @@ public class ProjectAdapter extends BaseAdapter {
 	}
 
 	@Override
-	public Object getItem(int position) {
-		// TODO Auto-generated method stub
-		return null;
+	public Project getItem(int position) {
+		return projects.get(position);
 	}
 
 	@Override
@@ -50,7 +49,7 @@ public class ProjectAdapter extends BaseAdapter {
 
 		holder.createdAt = (TextView) convertView
 				.findViewById(R.id.adapter_project_created_at_textView);
-		holder.createdAt.setText(KanbanHelper.getFormatedData(project
+		holder.createdAt.setText(KanbanHelper.getHumanData(project
 				.getCreatedAt()));
 
 		holder.name = (TextView) convertView

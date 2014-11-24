@@ -52,7 +52,7 @@ public class ProjectDAO {
 		ArrayList<Project> projects = new ArrayList<Project>();
 
 		Cursor cursor = database.query(TABLE, ALL_COLUMNS, null, null, null,
-				null, null);
+				null, TABLE_CREATED_AT + " DESC");
 		cursor.moveToFirst();
 
 		while (!cursor.isAfterLast()) {

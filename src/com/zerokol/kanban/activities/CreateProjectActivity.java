@@ -1,5 +1,7 @@
 package com.zerokol.kanban.activities;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.View;
@@ -38,7 +40,9 @@ public class CreateProjectActivity extends ActionBarActivity {
 				projectDataAccessObject.create(project);
 				projectDataAccessObject.close();
 
-				name.setText("");
+				Intent intent = new Intent();
+				setResult(Activity.RESULT_OK, intent);
+				finish();
 			}
 		});
 	}
